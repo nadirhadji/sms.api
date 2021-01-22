@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>SMS</title>
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap4-wizardy.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap4-wizardy.min.css}"/>
+    
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow-lg d-flex justify-content-between ">
+      <a class="navbar-brand p-2" href="#">SMS sender</a>
+      <img th:src="@{/img/fishbone32.png}" alt="fishlogo">
+</nav>
+
+<main role="main" class="container">
+
+	<form action="#" th:action="@{/submit}" th:object="${session}" method="post">
+	  
+	  <div class="row">
+	  	<div class="col"></div>
+	  	<div class="form-group col align-self-center">
+			<label for="sid-account">SID Account :</label>	    
+			<input type="text" th:field="*{sid}" class="form-control" id="sid-account" aria-describedby="emailHelp" placeholder="Sid number">
+			<small id="emailHelp" class="form-text text-muted">Provided by Twilio</small>
+			<br>
+			<label for="auth-token">Auth Number :</label>	    
+			<input type="text" th:field="*{AuthToken}" class="form-control" id="auth-token" placeholder="Authentification number">
+			<small id="emailHelp" class="form-text text-muted">Provided by Twilio</small>
+			<br>
+			<label for="sender-number">Sender Number :</label>	    
+			<input type="text" th:field="*{phonenumber}" class="form-control" id="sender-number" placeholder="Number wich send the messages">
+			<br>
+			<label for="message">Message :</label>	    
+			<input type="text" th:field="*{message}" class="form-control" id="message" placeholder="Your text message">
+			<br>
+			<div class="row">
+				<div class="col"></div>
+				<div class="col"><button type="submit" class="btn btn-dark">Submit</button></div>
+				<div class="col"></div>
+			</div>
+	  	</div>
+	  	<div class="col"></div>
+	  </div>
+	 
+	
+	</form>
+
+</main>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+</body>
+</html>
